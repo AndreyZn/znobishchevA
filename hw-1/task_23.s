@@ -19,21 +19,21 @@ value_space:
 
 main:
         pushl %ebp
-        movl %esp, %ebp  #prolog
+        movl %esp, %ebp  /*prolog*/
 
         pushl $value
         pushl $block_c
-        call scanf      #scanf type of value
+        call scanf      /*scanf type of value*/
         addl $8, %esp
 
         pushl $value_space
-        pushl $block_c    #we needn't ' '
+        pushl $block_c    
         call scanf
         addl $8, %esp
 
-        cmp $100, value   #'d'=100
+        cmp $100, value   /*'d'=100*/
         je label_d
-        cmp $99, value    #'c'=99
+        cmp $99, value    /*'c'=99*/
         je label_c
         jmp finish
 
@@ -62,7 +62,7 @@ finish:
         pushl $enter
         call printf
         addl $4, %esp
-        movl %ebp, %esp   #epilog
+        movl %ebp, %esp  /*epilog*/
         popl %ebp
         movl $0, %eax
         ret
